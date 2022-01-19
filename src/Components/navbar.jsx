@@ -33,7 +33,7 @@ function Navbar() {
               Movies
             </button>
             <button className="btn btn-outline-info btn-lg ms-3" type="button">
-              Hello world
+              Login
             </button>
             <button
               className="btn btn-outline-info btn-lg ms-3 me-3"

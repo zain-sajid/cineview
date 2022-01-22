@@ -4,44 +4,57 @@ function Navbar() {
   return (
     <div>
       <nav
-        className="navbar navbar-light"
+        className="navbar navbar-expand-lg navbar-dark"
         style={{ backgroundColor: "#1B1F23" }}
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img
-              src="https://i.ibb.co/C66R1gj/Minimalist-Movie-Film-Strip-Logo-1000-x-200-px.png"
+              src="https://gcdn.pbrd.co/images/9K8lUbWq1bxc.png?o=1"
               alt=""
-              height={"50vh"}
+              height={"40vh"}
               className="d-inline-block align-text-top"
             ></img>
           </a>
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            ></input>
-            <button
-              className="btn btn-outline-success btn-lg me-5"
-              type="submit"
-            >
-              Search
-            </button>
-            <button className="btn btn-outline-info btn-lg ms-5" type="button">
-              Movies
-            </button>
-            <button className="btn btn-outline-info btn-lg ms-3" type="button">
-              Login
-            </button>
-            <button
-              className="btn btn-outline-info btn-lg ms-3 me-3"
-              type="button"
-            >
-              Register
-            </button>
-          </form>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-between"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Movies
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Watchlist
+                </a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              ></input>
+              <button class="btn btn-primary" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </div>

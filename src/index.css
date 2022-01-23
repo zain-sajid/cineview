@@ -20,5 +20,9 @@ code {
 }
 
 .nav-link {
-  color: #ffd41e;
+  color: #fff;
+}
+
+.navbar-login {
+  color: #fff;
 }

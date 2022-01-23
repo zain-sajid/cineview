@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-lg navbar-dark"
+        className="navbar navbar-expand-lg"
         style={{ backgroundColor: "#1B1F23" }}
       >
         <div className="container-fluid">
@@ -40,7 +40,7 @@ function Navbar() {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex me-2">
               <input
                 className="form-control me-2"
                 type="search"
@@ -51,12 +51,18 @@ function Navbar() {
                 <i className="bi bi-search"></i>
               </button>
             </form>
-            <a className="nav-link" href="#">
-              Signup
-            </a>
-            <a className="nav-link" href="#">
-              Login
-            </a>
+            <ul className="navbar-nav">
+            <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Signup
+                </a>
+            </li>
+            <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Login
+                </a>
+            </li>
+            </ul>
           </div>
         </div>
       </nav>

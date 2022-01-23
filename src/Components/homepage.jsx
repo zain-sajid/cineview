@@ -14,7 +14,7 @@ function Homepage() {
         <hr className="my-4"></hr>
       </div>
       <div className="row">
-        <div className="col-lg-3 col-md-5 col-sm-11">
+        <div className="col-lg-3 col-md-5 col-sm-12">
           <a href="navbar">
             <div
               className="card"

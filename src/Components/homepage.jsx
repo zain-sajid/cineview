@@ -14,11 +14,11 @@ function Homepage() {
         <hr className="my-4"></hr>
       </div>
       <div className="row">
-        <div className="col-12">
+        <div className="col-lg-3 col-md-5 col-sm-11">
           <a href="navbar">
             <div
               className="card"
-              style={{ width: "18rem", backgroundColor: "#262a2d" }}
+              style={{ width: "auto", backgroundColor: "#262a2d" }}
             >
               <img
                 className="card-img-top"

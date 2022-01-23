@@ -16,6 +16,7 @@ function Navbar() {
               className="d-inline-block align-text-top"
             ></img>
           </a>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -27,20 +28,12 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav me-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Movies
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Watchlist
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex">
+
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <form className="d-flex me-2">
               <input
                 className="form-control me-2"
                 type="search"
@@ -51,12 +44,29 @@ function Navbar() {
                 <i className="bi bi-search"></i>
               </button>
             </form>
-            <a className="nav-link" href="#">
-              Signup
-            </a>
-            <a className="nav-link" href="#">
-              Login
-            </a>
+
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Movies
+                </a>
+              </li>
+              <li className="nav-item me-2">
+                <a className="nav-link" href="#">
+                  Watchlist
+                </a>
+              </li>
+              <li>
+                <a className="nav-link login" href="#">
+                  Signup
+                </a>
+              </li>
+              <li>
+                <a className="nav-link login" href="#">
+                  Login
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>

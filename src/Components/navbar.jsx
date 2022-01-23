@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-lg navbar-dark"
+        className="navbar navbar-expand-lg"
         style={{ backgroundColor: "#1B1F23" }}
       >
         <div className="container-fluid">

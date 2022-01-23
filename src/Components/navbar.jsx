@@ -27,11 +27,8 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className="collapse navbar-collapse justify-content-between"
-            id="navbarNav"
-          >
-            <ul className="navbar-nav">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Movies
@@ -43,17 +40,23 @@ function Navbar() {
                 </a>
               </li>
             </ul>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               ></input>
-              <button class="btn btn-primary" type="submit">
-                Search
+              <button className="btn btn-primary" type="submit">
+                <i className="bi bi-search"></i>
               </button>
             </form>
+            <a className="nav-link" href="#">
+              Signup
+            </a>
+            <a className="nav-link" href="#">
+              Login
+            </a>
           </div>
         </div>
       </nav>

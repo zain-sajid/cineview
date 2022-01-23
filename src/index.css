@@ -27,3 +27,7 @@ code {
 .nav-link.login:hover {
   color: #ffd41e !important;
 }
+
+.footer {
+  background-color: #1b1f23;
+}

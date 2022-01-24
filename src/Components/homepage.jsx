@@ -1,37 +1,49 @@
-import React, { useState } from "react";
-import $ from "jquery";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Homepage() {
-  $.getJSON(
-    "https://api.themoviedb.org/3/movie/550?api_key=922ab3d05d2360b60d9628fefaa55b8c"
-  );
+  const [listOfMovie, setListOfMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      let response = await axios.get(
+        "https://api.themoviedb.org/3/trending/movie/day?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
+      );
+      let tempList = response["data"]["results"];
+      setListOfMovie(tempList);
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-12">
-          <h2 className="text-center mt-4">Popular Movies</h2>
+          <h3 className="text-center mt-4">Popular Movies</h3>
         </div>
         <hr className="my-4"></hr>
       </div>
-      <div className="row">
-        <div className="col-lg-3 col-md-5 col-sm-11">
-          <a href="navbar">
-            <div
-              className="card"
-              style={{ width: "auto", backgroundColor: "#262a2d" }}
-            >
-              <img
-                className="card-img-top"
-                src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"
-                alt="Card image cap"
-              ></img>
-              <div className="card-body">
-                <h5 className="card-title">The Shawshank Redemption</h5>
-                <p className="card-text">1993</p>
+      <div className="row mb-2">
+        {listOfMovie.slice(0,12).map((e) => (
+          <div className="col-lg-3 col-md-6 col-sm-12 mb-2">
+            <a href="navbar" className="textCard">
+              <div
+                className="card changeOpacity"
+                style={{ width: "auto", backgroundColor: "#262a2d", height: "100%" }}
+              >
+                <img
+                  className="card-img-top"
+                  src={"https://image.tmdb.org/t/p/original/" + e.poster_path}
+                  alt="Card image cap"
+                ></img>
+                <div className="card-body">
+                  <h5 className="card-title">{e.title}</h5>
+                  <p className="card-text">{e.release_date.substring(0,4)}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );

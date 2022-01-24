@@ -31,3 +31,13 @@ code {
 .footer {
   background-color: #1b1f23;
 }
+
+.textCard{
+  text-decoration: none;
+  color: white;
+}
+
+.changeOpacity:hover{
+  opacity: 0.5;
+  color: white; 
+}

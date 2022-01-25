@@ -1,6 +1,66 @@
 import React, { useState } from "react";
 
 function Navbar() {
+  // For SignUp
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [nameErrorClass, setNameErrorClass] = useState("none");
+  const [emailErrorClass, setEmailErrorClass] = useState("none");
+  const [passwordErrorClass, setPasswordErrorClass] = useState("none");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
+  const [errorText, setErrorText] = useState("");
+
+  const validateEmail = () => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  function clearField(){
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setNameErrorClass("none");
+    setEmailErrorClass("none");
+    setPasswordErrorClass("none");
+    setConfirmPasswordErrorClass("none");
+    
+  }
+
+  function handleSignUpSubmission(e) {
+    e.preventDefault();
+
+    if (name.length < 3) {
+      setErrorText("Name cant be less than three character");
+      setNameErrorClass("block");
+      return;
+    }
+
+    if (!validateEmail()) {
+      setErrorText("Enter a valid Email");
+      setEmailErrorClass("block");
+      return;
+    }
+
+    if (password.length < 6){
+      setErrorText("Password must be of atleast 6 character");
+      setPasswordErrorClass("block");
+      return;
+    }
+
+    if (password != confirmPassword){
+      setErrorText("Passwords dont match!!");
+      setConfirmPasswordErrorClass("block");
+      return;
+    }
+
+  }
+
   return (
     <div>
       <nav
@@ -62,6 +122,7 @@ function Navbar() {
                   href="#"
                   data-bs-toggle="modal"
                   data-bs-target="#signUpModal"
+                  onClick={clearField}
                 >
                   Signup
                 </a>
@@ -97,7 +158,7 @@ function Navbar() {
                 data-bs-toggle="modal"
                 data-bs-target="#signUpModal"
                 className="col-6 p-3 text-decoration-none text-body border-bottom border-4"
-                style={{backgroundColor: "#eaeaea" }}
+                style={{ backgroundColor: "#eaeaea" }}
               >
                 <h3>Sign up</h3>
               </a>
@@ -111,7 +172,7 @@ function Navbar() {
             <div class="modal-body">
               <div class="form-floating mb-3">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
@@ -164,49 +225,75 @@ function Navbar() {
                 <h3>Login</h3>
               </a>
             </div>
-            <div class="modal-body">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                ></input>
-                <label for="floatingInput">Name</label>
+            <form onSubmit={handleSignUpSubmission}>
+              <div class="modal-body">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    value={name}
+                    class="form-control"
+                    id="nameInput"
+                    placeholder="name@example.com"
+                    onInput={(e) => setName(e.target.value)}
+                    onChange={(e) => setNameErrorClass("none")}
+                  ></input>
+                  <label for="nameInput">Name</label>
+                  <span class={"text-danger d-" + nameErrorClass}>
+                    {errorText}
+                  </span>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    value={email}
+                    class="form-control"
+                    id="emailInput"
+                    placeholder="name@example.com"
+                    onInput={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmailErrorClass("none")}
+                  ></input>
+                  <label for="emailInput">Email address</label>
+                  <span class={"text-danger d-" + emailErrorClass}>
+                    {errorText}
+                  </span>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    value={password}
+                    class="form-control"
+                    id="passwordInput"
+                    placeholder="Password"
+                    onInput={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPasswordErrorClass("none")}
+                  ></input>
+                  <label for="passwordInput">Password</label>
+                  <span class={"text-danger d-" + passwordErrorClass}>
+                    {errorText}
+                  </span>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="password"
+                    value={confirmPassword}
+                    class="form-control"
+                    id="confirmPasswordInput"
+                    placeholder="Password"
+                    onInput={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => setConfirmPasswordErrorClass("none")}
+                  ></input>
+                  <label for="confirmPasswordInput">Confirm Password</label>
+                  <span class={"text-danger d-" + confirmPasswordErrorClass}>
+                    {errorText}
+                  </span>
+                </div>
               </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                ></input>
-                <label for="floatingInput">Email address</label>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-lg btn-primary">
+                  Sign Up
+                </button>
               </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="floatingPassword"
-                  placeholder="Password"
-                ></input>
-                <label for="floatingPassword">Password</label>
-              </div>
-              <div class="form-floating">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="floatingPassword"
-                  placeholder="Password"
-                ></input>
-                <label for="floatingPassword">Confirm Password</label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-lg btn-primary">
-                Sign Up
-              </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

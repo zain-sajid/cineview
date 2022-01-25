@@ -6,11 +6,13 @@ import Navbar from "./Components/navbar";
 import reportWebVitals from "./reportWebVitals";
 import Homepage from "./Components/homepage";
 import Footer from "./Components/footer";
+import Details from "./Components/details";
 
 ReactDOM.render(
   <React.StrictMode>
     <Navbar />
-    <Homepage />
+    {/* <Homepage /> */}
+    <Details />
     <Footer />
   </React.StrictMode>,
   document.getElementById("root")

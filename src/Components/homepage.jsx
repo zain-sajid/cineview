@@ -23,13 +23,17 @@ function Homepage() {
         </div>
         <hr className="my-4"></hr>
       </div>
-      <div className="row mb-2">
-        {listOfMovie.slice(0,12).map((e) => (
-          <div className="col-lg-3 col-md-6 col-sm-12 mb-2">
-            <a href="navbar" className="textCard">
+      <div className="row">
+        {listOfMovie.slice(0, 8).map((e) => (
+          <div className="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <a href="" className="textCard">
               <div
                 className="card changeOpacity"
-                style={{ width: "auto", backgroundColor: "#262a2d", height: "100%" }}
+                style={{
+                  width: "auto",
+                  backgroundColor: "#1B1F23",
+                  height: "100%",
+                }}
               >
                 <img
                   className="card-img-top"
@@ -38,7 +42,7 @@ function Homepage() {
                 ></img>
                 <div className="card-body">
                   <h5 className="card-title">{e.title}</h5>
-                  <p className="card-text">{e.release_date.substring(0,4)}</p>
+                  <p className="card-text">{e.release_date.substring(0, 4)}</p>
                 </div>
               </div>
             </a>

@@ -30,14 +30,23 @@ code {
 
 .footer {
   background-color: #1b1f23;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.textCard{
+.textCard {
   text-decoration: none;
   color: white;
 }
 
-.changeOpacity:hover{
+.changeOpacity:hover {
   opacity: 0.5;
-  color: white; 
+  color: white;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }

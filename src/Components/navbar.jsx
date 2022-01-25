@@ -57,12 +57,22 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <a className="nav-link login" href="#">
+                <a
+                  className="nav-link login"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signUpModal"
+                >
                   Signup
                 </a>
               </li>
               <li>
-                <a className="nav-link login" href="#">
+                <a
+                  className="nav-link login"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                >
                   Login
                 </a>
               </li>
@@ -70,6 +80,136 @@ function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* Login Modal */}
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalExample"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog text-body">
+          <div class="modal-content">
+            <div class="modal-header text-center p-0">
+              <a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signUpModal"
+                className="col-6 p-3 text-decoration-none text-body border-bottom border-4"
+                style={{backgroundColor: "#eaeaea" }}
+              >
+                <h3>Sign up</h3>
+              </a>
+              <a
+                className="col-6 p-3 text-decoration-none text-body border-bottom border-4 border-warning"
+                href="#"
+              >
+                <h3>Login</h3>
+              </a>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                ></input>
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                ></input>
+                <label for="floatingPassword">Password</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-primary">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Signup Modal */}
+      <div
+        class="modal fade"
+        id="signUpModal"
+        tabindex="-1"
+        aria-labelledby="signUpModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog text-body">
+          <div class="modal-content">
+            <div class="modal-header text-center p-0">
+              <a
+                href="#"
+                className="col-6 p-3 text-decoration-none text-body border-bottom border-4 border-warning"
+              >
+                <h3>Sign up</h3>
+              </a>
+              <a
+                className="col-6 p-3 text-decoration-none text-body border-bottom border-4"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                style={{ backgroundColor: "#eaeaea" }}
+              >
+                <h3>Login</h3>
+              </a>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                ></input>
+                <label for="floatingInput">Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                ></input>
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                ></input>
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                ></input>
+                <label for="floatingPassword">Confirm Password</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-primary">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Footer() {
   return (
     <div>
-      <footer class="footer font-small blue pt-4">
+      <footer class="footer font-small blue pt-4 mt-5">
         <div class="container-fluid text-center text-md-left">
           <div class="row">
             <div class="col-md-7 mt-md-0 mt-3">

@@ -9,7 +9,8 @@ function Navbar() {
   const [nameErrorClass, setNameErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
-  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
+    useState("none");
   const [errorText, setErrorText] = useState("");
 
   const validateEmail = () => {
@@ -20,7 +21,7 @@ function Navbar() {
       );
   };
 
-  function clearField(){
+  function clearField() {
     setName("");
     setEmail("");
     setPassword("");
@@ -29,7 +30,6 @@ function Navbar() {
     setEmailErrorClass("none");
     setPasswordErrorClass("none");
     setConfirmPasswordErrorClass("none");
-    
   }
 
   function handleSignUpSubmission(e) {
@@ -47,18 +47,17 @@ function Navbar() {
       return;
     }
 
-    if (password.length < 6){
+    if (password.length < 6) {
       setErrorText("Password must be of atleast 6 character");
       setPasswordErrorClass("block");
       return;
     }
 
-    if (password != confirmPassword){
+    if (password != confirmPassword) {
       setErrorText("Passwords dont match!!");
       setConfirmPasswordErrorClass("block");
       return;
     }
-
   }
 
   return (
@@ -70,7 +69,7 @@ function Navbar() {
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img
-              src="https://gcdn.pbrd.co/images/9K8lUbWq1bxc.png?o=1"
+              src="https://i.postimg.cc/52k5HbGb/logo.png"
               alt=""
               height={"40vh"}
               className="d-inline-block align-text-top"

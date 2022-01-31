@@ -9,9 +9,7 @@ function Navbar() {
   const [nameErrorClass, setNameErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
-  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
-    useState("none");
-  const [errorText, setErrorText] = useState("");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
 
   const validateEmail = () => {
     return String(email)
@@ -36,25 +34,21 @@ function Navbar() {
     e.preventDefault();
 
     if (name.length < 3) {
-      setErrorText("Name cant be less than three character");
       setNameErrorClass("block");
       return;
     }
 
     if (!validateEmail()) {
-      setErrorText("Enter a valid Email");
       setEmailErrorClass("block");
       return;
     }
 
-    if (password.length < 6) {
-      setErrorText("Password must be of atleast 6 character");
+    if (password.length < 6){
       setPasswordErrorClass("block");
       return;
     }
 
-    if (password != confirmPassword) {
-      setErrorText("Passwords dont match!!");
+    if (password != confirmPassword){
       setConfirmPasswordErrorClass("block");
       return;
     }
@@ -143,7 +137,7 @@ function Navbar() {
 
       {/* Login Modal */}
       <div
-        class="modal fade"
+        class="modal"
         id="loginModal"
         tabindex="-1"
         aria-labelledby="loginModalExample"
@@ -199,7 +193,7 @@ function Navbar() {
 
       {/* Signup Modal */}
       <div
-        class="modal fade"
+        class="modal"
         id="signUpModal"
         tabindex="-1"
         aria-labelledby="signUpModalLabel"
@@ -238,7 +232,7 @@ function Navbar() {
                   ></input>
                   <label for="nameInput">Name</label>
                   <span class={"text-danger d-" + nameErrorClass}>
-                    {errorText}
+                    Name cant be less than three character
                   </span>
                 </div>
                 <div class="form-floating mb-3">
@@ -253,7 +247,7 @@ function Navbar() {
                   ></input>
                   <label for="emailInput">Email address</label>
                   <span class={"text-danger d-" + emailErrorClass}>
-                    {errorText}
+                    Enter a valid Email
                   </span>
                 </div>
                 <div class="form-floating mb-3">
@@ -268,7 +262,7 @@ function Navbar() {
                   ></input>
                   <label for="passwordInput">Password</label>
                   <span class={"text-danger d-" + passwordErrorClass}>
-                    {errorText}
+                    Password must be of atleast 6 character
                   </span>
                 </div>
                 <div class="form-floating">
@@ -283,7 +277,7 @@ function Navbar() {
                   ></input>
                   <label for="confirmPasswordInput">Confirm Password</label>
                   <span class={"text-danger d-" + confirmPasswordErrorClass}>
-                    {errorText}
+                    Passwords dont match!!
                   </span>
                 </div>
               </div>

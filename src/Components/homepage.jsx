@@ -38,7 +38,7 @@ function Homepage() {
                 <img
                   className="card-img-top"
                   src={"https://image.tmdb.org/t/p/original/" + e.poster_path}
-                  alt="Card image cap"
+                  alt={e.title}
                 ></img>
                 <div className="card-body">
                   <h5 className="card-title">{e.title}</h5>

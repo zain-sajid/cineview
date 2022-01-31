@@ -50,3 +50,11 @@ code {
 .navbar {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
+.yellow-color{
+  color: #f3ce13 ;
+}
+
+.navbar-color{
+  border-color: #1B1F23 !important;
+}

@@ -7,12 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 import Homepage from "./Components/homepage";
 import Footer from "./Components/footer";
 import Details from "./Components/details";
+import Watchlist from "./Components/watchlist";
+import MovieRow from "./Components/movierow";
 
 ReactDOM.render(
   <React.StrictMode>
     <Navbar />
-    {/* <Homepage /> */}
-    <Details />
+    {/* <Homepage />  */}
+    {/* <Details /> */}
+    {/* <MovieRow /> */}
+    <Watchlist />
     <Footer />
   </React.StrictMode>,
   document.getElementById("root")

@@ -13,26 +13,59 @@ function Details() {
       console.log(response);
       setMovie(response["data"]);
 
-      // IMDB
-      var options = {
-        method: "GET",
-        url: "https://imdb8.p.rapidapi.com/title/get-ratings",
-        params: { tconst: response["data"].imdb_id },
-        headers: {
-          "x-rapidapi-host": "imdb8.p.rapidapi.com",
-          "x-rapidapi-key":
-            "b75feabe7amsh7968ce5c937d81fp1b1941jsn4ef5570d14f1",
-        },
-      };
 
-      axios
-        .request(options)
-        .then(function (response) {
-          setRating(response["data"].rating);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      // response = await axios.get(
+      //   "https://imdb8.p.rapidapi.com/title/get-ratings?tconst=" + response["data"].imdb_id,
+
+      //   {
+      //     headers: {
+      //       "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      //       "x-rapidapi-key":
+      //         "61755a145emsh57865b4e7c1657ep1c6011jsnda462f4e35af",
+      //     },
+      //   }
+      // );
+      // setRating(response["data"].rating);
+
+      //This one is using axios.get() which doesnt work
+      response = await axios.get(
+        "https://imdb8.p.rapidapi.com/title/get-ratings",
+        {
+          params: {
+            tconst: response["data"].imdb_id,
+          },
+          headers: {
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "x-rapidapi-key":
+              "61755a145emsh57865b4e7c1657ep1c6011jsnda462f4e35af",
+          },
+        }
+      );
+      setRating(response["data"].rating);
+
+      // This one is using axios.request() which works
+      // var options = {
+      //   method: "GET",
+      //   url: "https://imdb8.p.rapidapi.com/title/get-ratings",
+      //   params: { tconst: response["data"].imdb_id },
+      //   headers: {
+      //     "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      //     "x-rapidapi-key":
+      //       "b75feabe7amsh7968ce5c937d81fp1b1941jsn4ef5570d14f1",
+      //   },
+      // };
+
+      // axios
+      //   .request(options)
+      //   .then(function (response) {
+      //     console.log(response)
+      //     setRating(response["data"].rating);
+      //   })
+      //   .catch(function (error) {
+      //     console.error(error);
+      //   });
+
+      
     }
     fetchData();
   }, []);

@@ -54,3 +54,7 @@ code {
 .rating {
   font-size: 32px;
 }
+
+.dark-card {
+  background-color: #1b1f23;
+}

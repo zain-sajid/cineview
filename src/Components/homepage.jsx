@@ -28,7 +28,7 @@ function Homepage() {
           <div className="col-lg-3 col-md-6 col-sm-12 mb-4">
             <a href="" className="textCard">
               <div
-                className="card changeOpacity"
+                className="card dark-card changeOpacity"
                 style={{
                   width: "auto",
                   backgroundColor: "#1B1F23",

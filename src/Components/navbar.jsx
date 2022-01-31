@@ -9,7 +9,13 @@ function Navbar() {
   const [nameErrorClass, setNameErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
+<<<<<<< HEAD
   const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
+=======
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
+    useState("none");
+  const [errorText, setErrorText] = useState("");
+>>>>>>> c50b33ea36eca26389a5003f7c4f37d92378c8dd
 
   const validateEmail = () => {
     return String(email)
@@ -19,7 +25,7 @@ function Navbar() {
       );
   };
 
-  function clearField(){
+  function clearField() {
     setName("");
     setEmail("");
     setPassword("");
@@ -28,7 +34,6 @@ function Navbar() {
     setEmailErrorClass("none");
     setPasswordErrorClass("none");
     setConfirmPasswordErrorClass("none");
-    
   }
 
   function handleSignUpSubmission(e) {
@@ -53,7 +58,6 @@ function Navbar() {
       setConfirmPasswordErrorClass("block");
       return;
     }
-
   }
 
   return (

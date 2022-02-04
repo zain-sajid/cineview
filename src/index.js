@@ -9,15 +9,19 @@ import Footer from "./Components/footer";
 import Details from "./Components/details";
 import Watchlist from "./Components/watchlist";
 import MovieRow from "./Components/movierow";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-    {/* <Homepage />  */}
-    {/* <Details /> */}
-    {/* <MovieRow /> */}
-    <Watchlist />
-    <Footer />
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   // For SignUp
@@ -9,7 +10,8 @@ function Navbar() {
   const [nameErrorClass, setNameErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
-  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
+    useState("none");
 
   const validateEmail = () => {
     return String(email)
@@ -43,12 +45,12 @@ function Navbar() {
       return;
     }
 
-    if (password.length < 6){
+    if (password.length < 6) {
       setPasswordErrorClass("block");
       return;
     }
 
-    if (password != confirmPassword){
+    if (password != confirmPassword) {
       setConfirmPasswordErrorClass("block");
       return;
     }
@@ -61,14 +63,14 @@ function Navbar() {
         style={{ backgroundColor: "#1B1F23" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link to="" className="navbar-brand">
             <img
               src="https://i.postimg.cc/52k5HbGb/logo.png"
               alt=""
               height={"40vh"}
               className="d-inline-block align-text-top"
             ></img>
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -105,9 +107,9 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item me-2">
-                <a className="nav-link" href="#">
+                <Link to="watchlist" className="nav-link">
                   Watchlist
-                </a>
+                </Link>
               </li>
               <li>
                 <a

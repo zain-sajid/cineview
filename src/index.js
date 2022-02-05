@@ -1,24 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import Navbar from "./Components/navbar";
 import reportWebVitals from "./reportWebVitals";
 import Homepage from "./Components/homepage";
-import Footer from "./Components/footer";
 import Details from "./Components/details";
 import Watchlist from "./Components/watchlist";
-import MovieRow from "./Components/movierow";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Navbar />
-    {/* <Homepage />  */}
-    {/* <Details /> */}
-    {/* <MovieRow /> */}
-    <Watchlist />
-    <Footer />
-  </React.StrictMode>,
+  <Router>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path={"/details/:id"}element={<Details />} />
+      <Route path="/watchlist" element={<Watchlist />} />
+    </Routes>
+  </Router>,
   document.getElementById("root")
 );
 

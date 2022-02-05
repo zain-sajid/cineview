@@ -1,57 +1,59 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "./navbar";
+import Footer from "./footer";
+import { useParams } from "react-router-dom"
 
 function Details() {
   const [movie, setMovie] = useState({});
   const [rating, setRating] = useState();
   const [cast, setCast] = useState([]);
   const [similar, setSimilar] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     async function fetchData() {
+      console.log(id);
       let response = await axios.get(
-        "https://api.themoviedb.org/3/movie/634649?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
+        "https://api.themoviedb.org/3/movie/" + id + "?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
       );
-      console.log(response);
       setMovie(response["data"]);
 
       let response2 = await axios.get(
-        "https://api.themoviedb.org/3/movie/634649/credits?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
+        "https://api.themoviedb.org/3/movie/" + id + "/credits?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
       );
-      let tempList = response2["data"]["cast"];
-      setCast(tempList);
-
+      setCast(response2["data"]["cast"]);
+ 
       let response3 = await axios.get(
-        "https://api.themoviedb.org/3/movie/634649/similar?api_key=87b82e1ce0bcea0c95a22cdc1e04617e&language=en-US&page=1"
+        "https://api.themoviedb.org/3/movie/" + id + "/similar?api_key=87b82e1ce0bcea0c95a22cdc1e04617e&language=en-US&page=1"
       );
-      // console.log(response3["data"]["results"]);
       setSimilar(response3["data"]["results"]);
+      console.log(response);
 
       // IMDB
-      https: var options = {
-        method: "GET",
-        url: "https://imdb8.p.rapidapi.com/title/get-ratings",
-        params: { tconst: response["data"].imdb_id },
-        headers: {
-          "x-rapidapi-host": "imdb8.p.rapidapi.com",
-          "x-rapidapi-key":
-            "b75feabe7amsh7968ce5c937d81fp1b1941jsn4ef5570d14f1",
-        },
-      };
+      response = await axios.get(
+        "https://imdb8.p.rapidapi.com/title/get-ratings",
+        {
+          params: {
+            tconst: response["data"].imdb_id,
+          },
+          headers: {
+            "x-rapidapi-host": "imdb8.p.rapidapi.com",
+            "x-rapidapi-key":
+              "61755a145emsh57865b4e7c1657ep1c6011jsnda462f4e35af",
+          },
+        }
+      );
+      setRating(response["data"].rating);
 
-      axios
-        .request(options)
-        .then(function (response) {
-          setRating(response["data"].rating);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+
     }
     fetchData();
   }, []);
+
   return (
     <div>
+      <Navbar />
       <div className="row m-0">
         <div className="col-lg-3 col-md-6 col-sm-12">
           <div
@@ -79,14 +81,11 @@ function Details() {
             <i class="bi bi-star-fill mx-2"></i>
             <p className="d-inline m-0 fs-4 b">{rating}</p>
           </div>
+          {/* Omar */}
           <small className="me-2">{movie.release_date?.substring(0, 4)}</small>
           <small>|</small>
-          {/* <small className="ms-2">{movie.genres?[0]}</small> */}
-          {/* Omar */}
-          {/* <small className="me-2">{movie.release_date.substring(0, 4)}</small>
-          <small>|</small>
-          <small className="ms-2">{movie.genres[0]}</small>
-          <small>{movie.genres?.slice(1).map((k) => ", " + k)}</small> */}
+          <small className="ms-2">{movie.genres ? movie.genres[0].name : null}</small>
+          <small>{movie.genres?.slice(1).map((k) => ", " + k.name)}</small> 
 
           {/* Zain */}
           {/* {movie.genres?.map((e) => (
@@ -106,8 +105,8 @@ function Details() {
             {/* Grid for one card */}
             {similar.slice(0, 2).map((e) => (
               <div className="col-lg-5 col-md-4 col-sm-4">
-                <a href="">
-                  <div className="card dark-card mb-3">
+                <a href={"/details/" + e.id}>
+                  <div className="card dark-card mb-3 changeOpacity">
                     <img
                       src={
                         "https://image.tmdb.org/t/p/original" + e.poster_path
@@ -123,8 +122,8 @@ function Details() {
             {/* Grid for one card */}
             {similar.slice(2, 4).map((e) => (
               <div className="col-lg-5 col-md-4 col-sm-4">
-                <a href="">
-                  <div className="card dark-card mb-3">
+                <a href={"/details/" + e.id}>
+                  <div className="card dark-card mb-3 changeOpacity">
                     <img
                       src={
                         "https://image.tmdb.org/t/p/original" + e.poster_path
@@ -138,6 +137,7 @@ function Details() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

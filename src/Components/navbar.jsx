@@ -61,7 +61,7 @@ function Navbar() {
         style={{ backgroundColor: "#1B1F23" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             <img
               src="https://i.postimg.cc/52k5HbGb/logo.png"
               alt=""

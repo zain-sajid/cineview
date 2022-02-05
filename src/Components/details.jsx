@@ -53,7 +53,6 @@ function Details() {
 
   return (
     <div>
-      <Navbar />
       <div className="row m-0">
         <div className="col-lg-3 col-md-6 col-sm-12">
           <div
@@ -91,12 +90,6 @@ function Details() {
               <small className="ms-2 fw-bold">{e.name}</small>
             ))}
           </div>
-
-          {/* Omar */}
-          <small className="me-2">{movie.release_date?.substring(0, 4)}</small>
-          <small>|</small>
-          <small className="ms-2">{movie.genres ? movie.genres[0].name : null}</small>
-          <small>{movie.genres?.slice(1).map((k) => ", " + k.name)}</small> 
 
           {/* Zain */}
 
@@ -146,7 +139,6 @@ function Details() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

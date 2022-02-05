@@ -20,7 +20,6 @@ function Homepage() {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12">
@@ -31,7 +30,7 @@ function Homepage() {
         <div className="row">
           {listOfMovie.slice(0, 8).map((e) => (
             <div className="col-lg-3 col-md-6 col-sm-12 mb-4">
-              <a href={"/details/" + e.id} className="textCard">
+              <a href={"/details/" + e.id} className="textCard text-decoration-none">
                 <div
                   className="card dark-card changeOpacity"
                   style={{
@@ -57,7 +56,6 @@ function Homepage() {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

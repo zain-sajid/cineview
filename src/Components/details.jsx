@@ -71,16 +71,27 @@ function Details() {
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-sm-12 px-4">
-          <h1 className="mt-5">{movie.title}</h1>
-          <div className="d-flex align-items-center">
+          <h1 className="mt-5 fw-bold">{movie.title}</h1>
+          <div className="d-flex align-items-center mt-2">
             <img
               src="https://ia.media-imdb.com/images/M/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@._V1_.png"
               alt=""
               width={"8%"}
             />
-            <i class="bi bi-star-fill mx-2"></i>
+            <i class="bi bi-star-fill mx-2 icon-yellow"></i>
             <p className="d-inline m-0 fs-4 b">{rating}</p>
           </div>
+          <div className="mt-2">
+            <small className="me-2 fw-bold">
+              {movie.release_date?.substring(0, 4)}
+            </small>
+            <small>|</small>
+            {/* <small className="ms-2">{movie.title}</small> */}
+            {movie.genres?.map((e) => (
+              <small className="ms-2 fw-bold">{e.name}</small>
+            ))}
+          </div>
+
           {/* Omar */}
           <small className="me-2">{movie.release_date?.substring(0, 4)}</small>
           <small>|</small>
@@ -88,11 +99,9 @@ function Details() {
           <small>{movie.genres?.slice(1).map((k) => ", " + k.name)}</small> 
 
           {/* Zain */}
-          {/* {movie.genres?.map((e) => (
-            <small>{e.name}</small>
-          ))} */}
+
           <p className="plot mt-4 fs-5">{movie.overview}</p>
-          <h2 className="mb-3">Cast</h2>
+          <h2 className="mb-3 fw-bold">Cast</h2>
           {cast.slice(0, 3).map((actor) => (
             <h5 className="me-4">{actor.name}</h5>
           ))}

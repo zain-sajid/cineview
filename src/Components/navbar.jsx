@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   // For SignUp
@@ -9,7 +10,8 @@ function Navbar() {
   const [nameErrorClass, setNameErrorClass] = useState("none");
   const [emailErrorClass, setEmailErrorClass] = useState("none");
   const [passwordErrorClass, setPasswordErrorClass] = useState("none");
-  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("none");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
+    useState("none");
 
   const validateEmail = () => {
     return String(email)
@@ -43,12 +45,12 @@ function Navbar() {
       return;
     }
 
-    if (password.length < 6){
+    if (password.length < 6) {
       setPasswordErrorClass("block");
       return;
     }
 
-    if (password != confirmPassword){
+    if (password != confirmPassword) {
       setConfirmPasswordErrorClass("block");
       return;
     }
@@ -105,9 +107,9 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item me-2">
-                <a className="nav-link" href="#">
+                <Link to="watchlist" className="nav-link">
                   Watchlist
-                </a>
+                </Link>
               </li>
               <li>
                 <a

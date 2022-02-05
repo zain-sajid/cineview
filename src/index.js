@@ -5,16 +5,21 @@ import reportWebVitals from "./reportWebVitals";
 import Homepage from "./Components/homepage";
 import Details from "./Components/details";
 import Watchlist from "./Components/watchlist";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import MovieRow from "./Components/movierow";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path={"/details/:id"}element={<Details />} />
-      <Route path="/watchlist" element={<Watchlist />} />
-    </Routes>
-  </Router>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

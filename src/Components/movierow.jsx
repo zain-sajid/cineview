@@ -33,8 +33,6 @@ function MovieRow(props) {
               src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}
               style={{
                 maxHeight: "200px",
-                // width: "100%",
-                // objectFit: "contain",
               }}
               className="p-3"
             ></img>

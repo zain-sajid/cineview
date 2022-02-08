@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "./navbar";
-import Footer from "./footer";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import Reviews from "./reviews";
 
 function Details() {
   const [movie, setMovie] = useState({});
@@ -15,17 +14,23 @@ function Details() {
     async function fetchData() {
       console.log(id);
       let response = await axios.get(
-        "https://api.themoviedb.org/3/movie/" + id + "?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
+        "https://api.themoviedb.org/3/movie/" +
+          id +
+          "?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
       );
       setMovie(response["data"]);
 
       let response2 = await axios.get(
-        "https://api.themoviedb.org/3/movie/" + id + "/credits?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
+        "https://api.themoviedb.org/3/movie/" +
+          id +
+          "/credits?api_key=87b82e1ce0bcea0c95a22cdc1e04617e"
       );
       setCast(response2["data"]["cast"]);
- 
+
       let response3 = await axios.get(
-        "https://api.themoviedb.org/3/movie/" + id + "/similar?api_key=87b82e1ce0bcea0c95a22cdc1e04617e&language=en-US&page=1"
+        "https://api.themoviedb.org/3/movie/" +
+          id +
+          "/similar?api_key=87b82e1ce0bcea0c95a22cdc1e04617e&language=en-US&page=1"
       );
       setSimilar(response3["data"]["results"]);
       console.log(response);
@@ -45,8 +50,6 @@ function Details() {
         }
       );
       setRating(response["data"].rating);
-
-
     }
     fetchData();
   }, []);
@@ -139,6 +142,8 @@ function Details() {
           </div>
         </div>
       </div>
+      {/* Reviews */}
+      <div></div>
     </div>
   );
 }

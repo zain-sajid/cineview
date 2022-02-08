@@ -62,3 +62,10 @@ code {
 .icon-yellow {
   color: #ffd41e;
 }
+
+.gradient {
+  background: linear-gradient(to right, #0d0d0c 70%, transparent 120%);
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center; */
+}

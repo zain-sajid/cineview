@@ -143,7 +143,29 @@ function Details() {
         </div>
       </div>
       {/* Reviews */}
-      <div></div>
+      <div className="container">
+        <hr className=" my-4"></hr>
+        <h4 className="text-center mt-4 mb-4">
+          <i class="bi bi-star-fill mx-2 icon-yellow"></i>Movie Reviews
+        </h4>
+        <div class="card dark-card">
+          <div class="card-body">
+            <h5 class="card-title">Zain Sajid</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <i class="bi bi-star-fill me-2 icon-yellow"></i>5/10
+            </h6>
+            <p class="card-text">
+              The bad; sentimental storyline with no real intense drama to speak
+              of, because everything in this movie is so safe and predictable.
+              You know from the beginning this is the dude who is gonna be
+              successfull in sports and on the way to his great success his wife
+              is crying alot from time to time, about whatever. And if she aint
+              crying she is looking like she is selling hallmark christmas
+              cards.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

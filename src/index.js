@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 import Homepage from "./Components/homepage";
 import Details from "./Components/details";
 import Watchlist from "./Components/watchlist";
-import MovieRow from "./Components/movierow";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/navbar";
 import Footer from "./Components/footer";
@@ -14,11 +13,11 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route path="/details/:id" element={<Details />} />
-        <Route path="/watchlist" element={<Watchlist />} />
-      </Routes>
+      {/* <Routes> */}
+      <Route exact path="/" element={<Homepage />} />
+      <Route path="/details/:id" element={<Details />} />
+      <Route path="/watchlist" element={<Watchlist />} />
+      {/* </Routes> */}
       <Footer />
     </BrowserRouter>
   </React.StrictMode>,
